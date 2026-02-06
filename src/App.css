@@ -1,0 +1,45 @@
+/* Page specific styles */
+.tab-nav {
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: var(--spacing-md);
+  font-weight: bold;
+  color: var(--color-text-muted);
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  background: white;
+  border-right: 1px solid var(--color-bg-body);
+}
+
+.tab-btn:last-child {
+  border-right: none;
+}
+
+.tab-btn.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  background-color: var(--color-bg-body);
+}
+
+.add-recipe-toggle {
+  width: 100%;
+  padding: var(--spacing-md);
+  background-color: var(--color-secondary);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: bold;
+  margin-bottom: var(--spacing-lg);
+}
+
+.add-recipe-toggle:hover {
+  background-color: hsl(var(--hue-secondary), 70%, 40%);
+}
+
+.recipe-actions {
+  margin-bottom: var(--spacing-md);
+}

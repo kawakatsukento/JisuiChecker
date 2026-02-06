@@ -1,0 +1,44 @@
+.add-recipe-form {
+    background-color: var(--color-bg-surface);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+}
+
+.ingredient-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 4px 8px;
+    background-color: var(--color-bg-body);
+    border-radius: 12px;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+}
+
+.checkbox-label:has(input:checked) {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.cancel-btn {
+    flex: 1;
+    padding: var(--spacing-md);
+    color: var(--color-text-muted);
+}

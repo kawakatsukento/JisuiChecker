@@ -1,0 +1,105 @@
+.recommendation-view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.notification-section h3,
+.suggestion-section h3 {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-main);
+}
+
+.alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.alert-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background-color: white;
+    border: 1px solid var(--color-border);
+}
+
+.alert-card.warning {
+    background-color: #fff3e0;
+    border-color: #ffe0b2;
+    color: #e65100;
+}
+
+.alert-card.expired {
+    background-color: #ffebee;
+    border-color: #ffcdd2;
+    color: #b71c1c;
+}
+
+.alert-icon {
+    font-size: 1.5rem;
+}
+
+.no-alerts {
+    color: var(--color-text-muted);
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.suggestion-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.suggestion-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.suggestion-card {
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.suggestion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.suggestion-header h4 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-primary-dark);
+}
+
+.match-tag {
+    background-color: var(--color-secondary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.suggestion-ingredients {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.empty-suggestions {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--color-text-muted);
+    background: white;
+    border-radius: var(--radius-md);
+}
