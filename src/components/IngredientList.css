@@ -108,3 +108,27 @@
     background-color: #ffebee;
     border-radius: 50%;
 }
+
+.item-quantity-input {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 2px 4px;
+    width: 60px;
+    text-align: right;
+    transition: all 0.2s;
+}
+
+.item-quantity-input:hover {
+    border-color: #ddd;
+    background-color: white;
+}
+
+.item-quantity-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: white;
+    color: var(--color-text-main);
+}

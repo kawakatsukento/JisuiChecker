@@ -5,6 +5,7 @@ export function AddIngredientForm({ onAdd }) {
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState('');
     const [expiryDate, setExpiryDate] = useState('');
+    const [category, setCategory] = useState('ingredient');
     const [notes, setNotes] = useState('');
 
     const handleSubmit = (e) => {
@@ -15,6 +16,7 @@ export function AddIngredientForm({ onAdd }) {
             name,
             quantity,
             expiryDate,
+            category,
             notes
         });
 
@@ -22,6 +24,7 @@ export function AddIngredientForm({ onAdd }) {
         setName('');
         setQuantity('');
         setExpiryDate('');
+        setCategory('ingredient');
         setNotes('');
     };
 
@@ -60,6 +63,32 @@ export function AddIngredientForm({ onAdd }) {
                         value={expiryDate}
                         onChange={(e) => setExpiryDate(e.target.value)}
                     />
+                </div>
+            </div>
+
+            <div className="form-group">
+                <label>カテゴリ</label>
+                <div className="category-select">
+                    <label className={`category-option ${category === 'ingredient' ? 'active' : ''}`}>
+                        <input
+                            type="radio"
+                            name="category"
+                            value="ingredient"
+                            checked={category === 'ingredient'}
+                            onChange={(e) => setCategory(e.target.value)}
+                        />
+                        食材
+                    </label>
+                    <label className={`category-option ${category === 'seasoning' ? 'active' : ''}`}>
+                        <input
+                            type="radio"
+                            name="category"
+                            value="seasoning"
+                            checked={category === 'seasoning'}
+                            onChange={(e) => setCategory(e.target.value)}
+                        />
+                        調味料
+                    </label>
                 </div>
             </div>
 

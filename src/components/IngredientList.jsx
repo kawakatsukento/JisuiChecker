@@ -1,8 +1,8 @@
 import './IngredientList.css';
 
-export function IngredientList({ ingredients, onDelete, onToggleConsumed }) {
+export function IngredientList({ ingredients, onDelete, onToggleConsumed, onUpdate }) {
     if (ingredients.length === 0) {
-        return <div className="empty-state">まだ食材が登録されていません。</div>;
+        return <div className="empty-state">まだ登録されていません。</div>;
     }
 
     // Calculate generic status (e.g. days until expiry)
@@ -35,7 +35,14 @@ export function IngredientList({ ingredients, onDelete, onToggleConsumed }) {
                         <div className="item-details">
                             <div className="item-header">
                                 <span className="item-name">{item.name}</span>
-                                <span className="item-quantity">{item.quantity}</span>
+                                <input
+                                    type="text"
+                                    className="item-quantity-input"
+                                    value={item.quantity}
+                                    onChange={(e) => onUpdate(item.id, { quantity: e.target.value })}
+                                    onClick={(e) => e.stopPropagation()}
+                                    placeholder="個数/量"
+                                />
                             </div>
                             <div className="item-meta">
                                 {status && (

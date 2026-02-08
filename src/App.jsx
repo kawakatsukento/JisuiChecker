@@ -7,12 +7,16 @@ import { IngredientList } from './components/IngredientList'
 import { AddRecipeForm } from './components/AddRecipeForm'
 import { RecipeList } from './components/RecipeList'
 import { RecommendationView } from './components/RecommendationView'
+import { CalendarView } from './components/CalendarView'
 
 function App() {
-  const { ingredients, addIngredient, deleteIngredient, toggleConsumed } = useIngredients();
+  const { ingredients, addIngredient, deleteIngredient, toggleConsumed, updateIngredient } = useIngredients();
   const { recipes, addRecipe, deleteRecipe } = useRecipes();
-  const [activeTab, setActiveTab] = useState('list'); // 'list', 'recipes', 'ideas'
+  const [activeTab, setActiveTab] = useState('list'); // 'list', 'calendar', 'recipes', 'ideas'
   const [isAddingRecipe, setIsAddingRecipe] = useState(false);
+
+  const foodIngredients = ingredients.filter(i => i.category !== 'seasoning');
+  const seasonings = ingredients.filter(i => i.category === 'seasoning');
 
   return (
     <div className="app-container">
@@ -26,6 +30,12 @@ function App() {
           onClick={() => setActiveTab('list')}
         >
           買い物リスト
+        </button>
+        <button
+          className={`tab-btn ${activeTab === 'calendar' ? 'active' : ''}`}
+          onClick={() => setActiveTab('calendar')}
+        >
+          カレンダー
         </button>
         <button
           className={`tab-btn ${activeTab === 'recipes' ? 'active' : ''}`}
@@ -47,15 +57,31 @@ function App() {
             <section>
               <AddIngredientForm onAdd={addIngredient} />
             </section>
+
             <section>
-              <h2>食材リスト ({ingredients.filter(i => !i.isConsumed).length})</h2>
+              <h2>食材リスト ({foodIngredients.filter(i => !i.isConsumed).length})</h2>
               <IngredientList
-                ingredients={ingredients}
+                ingredients={foodIngredients}
                 onDelete={deleteIngredient}
                 onToggleConsumed={toggleConsumed}
+                onUpdate={updateIngredient}
+              />
+            </section>
+
+            <section className="seasoning-section">
+              <h2>調味料リスト ({seasonings.filter(i => !i.isConsumed).length})</h2>
+              <IngredientList
+                ingredients={seasonings}
+                onDelete={deleteIngredient}
+                onToggleConsumed={toggleConsumed}
+                onUpdate={updateIngredient}
               />
             </section>
           </>
+        )}
+
+        {activeTab === 'calendar' && (
+          <CalendarView ingredients={ingredients} />
         )}
 
         {activeTab === 'recipes' && (
